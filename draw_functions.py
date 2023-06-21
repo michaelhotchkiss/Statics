@@ -58,7 +58,11 @@ def draw_force(x_position, y_position, x_component, y_component, label=''):
 
 def draw_3d_arrow(start, direction, annotation, ax):
     arrow_length = np.linalg.norm(direction)
-    arrow_head_length = 0.002 * arrow_length
+    print(arrow_length)
+    if arrow_length>100:
+        arrow_head_length = 0.0001 * arrow_length
+    elif arrow_length<=100:
+        arrow_head_length = 0.002 * arrow_length
     # Plot the arrow
     ax.quiver(start[0], start[1], start[2],
               direction[0], direction[1], direction[2],
