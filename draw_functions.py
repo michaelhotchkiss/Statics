@@ -58,7 +58,6 @@ def draw_force(x_position, y_position, x_component, y_component, label=''):
 
 def draw_3d_arrow(start, direction, annotation, ax):
     arrow_length = np.linalg.norm(direction)
-    print(arrow_length)
     if arrow_length>100:
         arrow_head_length = 0.0001 * arrow_length
     elif arrow_length<=100:
@@ -68,7 +67,7 @@ def draw_3d_arrow(start, direction, annotation, ax):
               direction[0], direction[1], direction[2],
               pivot='tail', arrow_length_ratio=arrow_head_length)
     # length=arrow_length,
-    ax.text(1.1 * direction[0], 1.1 * direction[1], 1.1 * direction[2], annotation, ha='center', va='center')
+    ax.text(start[0] + 1.1 * direction[0],start[1] + 1.1 * direction[1],start[2] + 1.1 * direction[2], annotation, ha='center', va='center')
     return
 
 
